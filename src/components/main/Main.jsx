@@ -5,7 +5,7 @@ import { Context } from '../../context/context'
 const Main = () => {
     const {onSent,recentPrompt, showResult, loading, resultData, setInput,input} = useContext(Context)
   return (
-    <div className='main flex-1 min-h-screen relative pb-[15vh]'>
+    <div className='main flex-1 min-h-screen relative pb-[15vh] p-3'>
         {/* navbar */}
         <div className=' nav flex items-center justify-between text-2xl p-5 text-[#585858]'>
             <p>Gemini</p>
@@ -19,7 +19,7 @@ const Main = () => {
                 <>
                     <div className=' my-12 mx-0 text-5xl text-[#c4c7c5] font-medium'>
                         <p>
-                            <span className='text-gradient'>Hello, Priyanshu</span>
+                            <span className='text-gradient'>Hello, Dev</span>
                         </p>
                         <p>How can I help you today?</p>
                     </div>
@@ -73,12 +73,13 @@ const Main = () => {
             {/* bottom */}
 
             <div className=' absolute bottom-0 w-[100%] max-w-[900px] px-5 py-0 m-auto'>
-                <div className=' flex items-center justify-between gap-5 bg-[#f0f4f9] px-5 rounded-[50px]'>
-                    <input onChange={(e)=>setInput(e.target.value)} value={input} type="text" placeholder='Enter a prompt here' className=' flex-1 bg-transparent border-none outline-none p-1.5 text-lg' /> 
-                    <div className=' flex items-center gap-4'>
-                        <img src={assets.gallery_icon} alt="" className=' w-6 cursor-pointer' />
-                        <img src={assets.mic_icon} alt="" className=' w-6 cursor-pointer'/>
-                        <img onClick={()=>onSent()} src={assets.send_icon} alt="" className=' w-6 cursor-pointer' />
+                <div className=' flex items-center justify-between gap-5 bg-[#f0f4f9] py-1 px-5 rounded-[50px] max-sm:py-1 max-sm:px-3'>
+                    <input onChange={(e)=>setInput(e.target.value)} value={input} type="text" placeholder='Enter a prompt here' className=' flex-1 bg-transparent border-none outline-none p-1.5 text-lg max-sm:flex-none max-sm:w-36' /> 
+                    <div className=' flex items-center gap-4 max-sm:gap-1'>
+                        <img src={assets.gallery_icon} alt="" className=' w-6 cursor-pointer max-sm:w-5' />
+                        <img src={assets.mic_icon} alt="" className=' w-6 cursor-pointer max-sm:w-5'/>
+                        {input?
+                        <img onClick={()=>onSent()} src={assets.send_icon} alt="" className=' w-6 cursor-pointer max-sm:w-5' />:null}
                     </div>
                 </div>
                 <p className=' text-sm my-4 mx-auto text-center font-light'>
